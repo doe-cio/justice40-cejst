@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the Indicator checks if component renders 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <span>
+              97%
+            </span>
+          </div>
+        </div>
+        <div>
+          <div>
+            above 
+            <span>
+              20%
+            </span>
+             percent
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`rendering of the Indicator checks if the flooring function works 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <span>
+              42%
+            </span>
+          </div>
+        </div>
+        <div>
+          <div>
+            above 
+            <span>
+              20%
+            </span>
+             percent
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for Former defense sites checks if it renders nothin when FUDS_RAW = null: 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            --
+          </div>
+        </div>
+        <div>
+          <div>
+            missing data
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for Former defense sites checks if it renders when FUDS_RAW = false: 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            No
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for Former defense sites checks if it renders when FUDS_RAW = true 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            Yes
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for abandoned land mines checks if it renders nothin when AML_RAW = null: 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            --
+          </div>
+        </div>
+        <div>
+          <div>
+            missing data
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for abandoned land mines checks if it renders when AML_RAW = false: 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            No
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for abandoned land mines checks if it renders when AML_RAW = true 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            Yes
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for historic underinvest. checks if it renders nothin when HRS_ET = null: 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            --
+          </div>
+        </div>
+        <div>
+          <div>
+            missing data
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for historic underinvest. checks if it renders when HRS_ET = false: 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            No
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`renders value correctly for historic underinvest. checks if it renders when HRS_ET = true 1`] = `
+<DocumentFragment>
+  <li
+    data-cy="indicatorBox"
+    data-testid="indicator-box"
+  >
+    <div>
+      <div>
+        some label
+        <div>
+          some description
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            Yes
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`test rendering of Indicator value sub-text renders missing data  1`] = `
+<DocumentFragment>
+  <div>
+    missing data
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test rendering of Indicator value sub-text renders the "above 90 percentile" 1`] = `
+<DocumentFragment>
+  <div>
+    above 90
+    <sup
+      style="top: -0.2em;"
+    >
+      th
+    </sup>
+     percentile
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test rendering of Indicator value sub-text renders the "below 90 percentile" 1`] = `
+<DocumentFragment>
+  <div>
+    below 90
+    <sup
+      style="top: -0.2em;"
+    >
+      th
+    </sup>
+     percentile
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test that the unit suffix renders correctly renders correctly when the value is a null 1`] = `
+<DocumentFragment>
+  --
+</DocumentFragment>
+`;
+
+exports[`test that the unit suffix renders correctly renders correctly when the value is a percent 1`] = `
+<DocumentFragment>
+  <span>
+    90%
+  </span>
+</DocumentFragment>
+`;
+
+exports[`test that the unit suffix renders correctly renders correctly when the value is a percentile 1`] = `
+<DocumentFragment>
+  90
+  <sup
+    style="top: -0.2em;"
+  >
+    th
+  </sup>
+</DocumentFragment>
+`;

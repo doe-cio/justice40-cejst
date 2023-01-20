@@ -1,0 +1,23 @@
+@use '../styles/design-system.scss' as *;
+
+@mixin baseTerritoryFocus {
+  position: absolute;
+  left: .75em;
+  z-index: 1;
+}
+
+.territoryFocusContainer {
+  @include baseTerritoryFocus;
+
+  // styles for mobile-lg (480px) and greater widths:
+  @include at-media('mobile-lg') {
+    top: units(card-lg);
+  };
+
+  // styles for mobile-lg (480px) and smaller widths:
+  top: 100px;
+
+}
+
+
+

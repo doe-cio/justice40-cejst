@@ -1,0 +1,978 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the DatasetContainer checks if various text fields are visible 1`] = `
+<DocumentFragment>
+  <header
+    class="usa-header usa-header--basic"
+    data-testid="header"
+    role="banner"
+  >
+    <div>
+      <div>
+        <section
+          class="usa-banner"
+          data-testid="govBanner"
+        >
+          <div
+            class="usa-accordion"
+          >
+            <header
+              class="usa-banner__header"
+            >
+              <div
+                class="usa-banner__inner"
+              >
+                <div
+                  class="grid-col-auto"
+                >
+                  <img
+                    alt="U.S. flag"
+                    class="usa-banner__header-flag"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAG1BMVEUdM7EeNLIeM7HgQCDaPh/bPh/bPx/////bPyBEby41AAAAUElEQVQI123MNw4CABDEwD3jC/9/MQ1BQrgeOSkIqYe2o2FZtthXgQLgbHVMZdlsfUQFQnHtjP1+8BUhBDKOqtmfot6ojqPzR7TjdU+f6vkED+IDPhTBcMAAAAAASUVORK5CYII="
+                  />
+                </div>
+                <div
+                  class="grid-col-fill tablet:grid-col-auto"
+                >
+                  <p
+                    class="usa-banner__header-text"
+                  >
+                    An official website of the United States government
+                  </p>
+                  <p
+                    aria-hidden="true"
+                    class="usa-banner__header-action"
+                  >
+                    Here’s how you know
+                  </p>
+                </div>
+                <button
+                  aria-controls="gov-banner"
+                  aria-expanded="false"
+                  class="usa-accordion__button usa-banner__button"
+                  type="button"
+                >
+                  <span
+                    class="usa-banner__button-text"
+                  >
+                    Here’s how you know
+                  </span>
+                </button>
+              </div>
+            </header>
+            <div
+              class="usa-banner__content usa-accordion__content"
+              hidden=""
+              id="gov-banner"
+            >
+              <div
+                class="grid-row grid-gap-lg"
+              >
+                <div
+                  class="usa-banner__guidance tablet:grid-col-6"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    class="usa-banner__icon usa-media-block__img"
+                    role="img"
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgNjQgNjQiPjx0aXRsZT5pY29uLWRvdC1nb3Y8L3RpdGxlPjxwYXRoIGZpbGw9IiMyMzc4QzMiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMyIDBjMTcuNjczIDAgMzIgMTQuMzI3IDMyIDMyIDAgMTcuNjczLTE0LjMyNyAzMi0zMiAzMkMxNC4zMjcgNjQgMCA0OS42NzMgMCAzMiAwIDE0LjMyNyAxNC4zMjcgMCAzMiAwem0wIDEuMjA4QzE0Ljk5NCAxLjIwOCAxLjIwOCAxNC45OTQgMS4yMDggMzJTMTQuOTk0IDYyLjc5MiAzMiA2Mi43OTIgNjIuNzkyIDQ5LjAwNiA2Mi43OTIgMzIgNDkuMDA2IDEuMjA4IDMyIDEuMjA4em0xMC41OSAzOC44NThhLjg1Ny44NTcgMCAwIDEgLjg4Mi44MjJ2MS42NDJIMTguODg2di0xLjY0MmEuODU3Ljg1NyAwIDAgMSAuODgyLS44MjJINDIuNTl6TTI1LjQ0MyAyNy43NzR2OS44MjloMS42NDJ2LTkuODNoMy4yNzN2OS44M0gzMnYtOS44M2gzLjI3MnY5LjgzaDEuNjQzdi05LjgzaDMuMjcydjkuODNoLjc2YS44NTcuODU3IDAgMCAxIC44ODIuODIxdi44MjFoLTIxLjN2LS44MDlhLjg1Ny44NTcgMCAwIDEgLjg4LS44MmguNzYydi05Ljg0MmgzLjI3MnptNS43MzYtOC4xODhsMTIuMjkzIDQuOTE1djEuNjQyaC0xLjYzYS44NTcuODU3IDAgMCAxLS44ODIuODIySDIxLjQxYS44NTcuODU3IDAgMCAxLS44ODItLjgyMmgtMS42NDJ2LTEuNjQybDEyLjI5My00LjkxNXoiLz48L3N2Zz4="
+                  />
+                  <div
+                    class="usa-media-block__body"
+                  >
+                    <p>
+                      <strong>
+                        Official websites use .gov
+                      </strong>
+                      <br />
+                      A 
+                      <strong>
+                        .gov
+                      </strong>
+                       website belongs to an official government organization in the United States.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="usa-banner__guidance tablet:grid-col-6"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    class="usa-banner__icon usa-media-block__img"
+                    role="img"
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgNjQgNjQiPjx0aXRsZT5pY29uLWh0dHBzPC90aXRsZT48cGF0aCBmaWxsPSIjNzE5RjJBIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zMiAwYzE3LjY3MyAwIDMyIDE0LjMyNyAzMiAzMiAwIDE3LjY3My0xNC4zMjcgMzItMzIgMzJDMTQuMzI3IDY0IDAgNDkuNjczIDAgMzIgMCAxNC4zMjcgMTQuMzI3IDAgMzIgMHptMCAxLjIwOEMxNC45OTQgMS4yMDggMS4yMDggMTQuOTk0IDEuMjA4IDMyUzE0Ljk5NCA2Mi43OTIgMzIgNjIuNzkyIDYyLjc5MiA0OS4wMDYgNjIuNzkyIDMyIDQ5LjAwNiAxLjIwOCAzMiAxLjIwOHptMCAxOC44ODZhNy4yNDUgNy4yNDUgMCAwIDEgNy4yNDUgNy4yNDV2My4xMDNoLjUyYy44NiAwIDEuNTU3LjY5OCAxLjU1NyAxLjU1OHY5LjMyMmMwIC44Ni0uNjk3IDEuNTU4LTEuNTU3IDEuNTU4aC0xNS41M2MtLjg2IDAtMS41NTctLjY5Ny0xLjU1Ny0xLjU1OFYzMmMwLS44Ni42OTctMS41NTggMS41NTctMS41NThoLjUyVjI3LjM0QTcuMjQ1IDcuMjQ1IDAgMCAxIDMyIDIwLjA5NHptMCAzLjEwM2E0LjE0MiA0LjE0MiAwIDAgMC00LjE0MiA0LjE0MnYzLjEwM2g4LjI4NFYyNy4zNEE0LjE0MiA0LjE0MiAwIDAgMCAzMiAyMy4xOTd6Ii8+PC9zdmc+"
+                  />
+                  <div
+                    class="usa-media-block__body"
+                  >
+                    <p>
+                      <strong>
+                        Secure .gov websites use HTTPS
+                      </strong>
+                      <br />
+                      A 
+                      <strong>
+                        lock (
+                        <span
+                          class="icon-lock"
+                        >
+                          <img
+                            alt="lock"
+                            class="usa-banner__lock-image"
+                            role="img"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUyIiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgNTIgNjQiPjx0aXRsZT5sb2NrPC90aXRsZT48cGF0aCBmaWxsPSIjMUIxQjFCIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yNiAwYzEwLjQ5MyAwIDE5IDguNTA3IDE5IDE5djloM2E0IDQgMCAwIDEgNCA0djI4YTQgNCAwIDAgMS00IDRINGE0IDQgMCAwIDEtNC00VjMyYTQgNCAwIDAgMSA0LTRoM3YtOUM3IDguNTA3IDE1LjUwNyAwIDI2IDB6bTAgOGMtNS45NzkgMC0xMC44NDMgNC43Ny0xMC45OTYgMTAuNzEyTDE1IDE5djloMjJ2LTljMC02LjA3NS00LjkyNS0xMS0xMS0xMXoiLz48L3N2Zz4="
+                            title="Lock"
+                          />
+                        </span>
+                        )
+                      </strong>
+                       or 
+                      <strong>
+                        https://
+                      </strong>
+                       means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div>
+      <div>
+        <strong>
+          This tool has been updated.
+        </strong>
+         The 1.0 version of the tool was released on Nov 22, 2022.
+      </div>
+    </div>
+    <div
+      class="grid-container-desktop-lg"
+      data-testid="gridContainer"
+    >
+      <div
+        class="grid-row"
+        data-testid="grid"
+      >
+        <div
+          class="grid-col-1"
+          data-testid="grid"
+        >
+          <a
+            data-cy="nav-link-explore-the-map"
+            href="/en/"
+          >
+            <img
+              alt="Climate and Economic Justice Screening Tool"
+              src="test-file-stub"
+            />
+          </a>
+        </div>
+        <div
+          class="grid-col-6"
+          data-testid="grid"
+        >
+          <a
+            class="remove-link-style"
+            data-cy="nav-link-explore-the-map"
+            href="/en/"
+          >
+            <div>
+              Climate and Economic Justice Screening Tool
+            </div>
+          </a>
+        </div>
+        <div
+          class="grid-col-fill"
+          data-testid="grid"
+        >
+          <button
+            class="usa-menu-btn"
+            data-testid="navMenuButton"
+            type="button"
+          >
+            Menu
+          </button>
+          <nav
+            class="usa-nav"
+          >
+            <button
+              class="usa-nav__close"
+              data-testid="navCloseButton"
+              type="button"
+            >
+              <img
+                alt="close"
+                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgNjQgNjQiPjx0aXRsZT5jbG9zZTwvdGl0bGU+PHBhdGggZmlsbD0iIzU2NUM2NSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNTcuMDQyIDEuMTVsNS44MDkgNS44MDhhNCA0IDAgMCAxIDAgNS42NTdMNDMuNDY1IDMybDE5LjM4NiAxOS4zODVhNCA0IDAgMCAxIDAgNS42NTdsLTUuODA5IDUuODA5YTQgNCAwIDAgMS01LjY1NyAwTDMyIDQzLjQ2NSAxMi42MTUgNjIuODUxYTQgNCAwIDAgMS01LjY1NyAwbC01LjgwOS01LjgwOWE0IDQgMCAwIDEgMC01LjY1N0wyMC41MzUgMzIgMS4xNDkgMTIuNjE1YTQgNCAwIDAgMSAwLTUuNjU3bDUuODA5LTUuODA5YTQgNCAwIDAgMSA1LjY1NyAwTDMyIDIwLjUzNSA1MS4zODUgMS4xNDlhNCA0IDAgMCAxIDUuNjU3IDB6Ii8+PC9zdmc+"
+              />
+            </button>
+            <ul
+              class="usa-nav__primary usa-accordion"
+            >
+              <li
+                class="usa-nav__primary-item"
+              >
+                <a
+                  data-cy="nav-link-explore-the-map"
+                  href="/en/"
+                >
+                  Explore the map
+                </a>
+              </li>
+              <li
+                class="usa-nav__primary-item"
+              >
+                <button
+                  aria-controls="methMenu"
+                  aria-expanded="false"
+                  class="usa-accordion__button usa-nav__link"
+                  data-cy="nav-dropdown-methodology"
+                  data-testid="navDropDownButton"
+                  type="button"
+                >
+                  <span>
+                    Methodology & data
+                  </span>
+                </button>
+                <ul
+                  class="usa-nav__submenu"
+                  hidden=""
+                  id="methMenu"
+                >
+                  <li
+                    class="usa-nav__submenu-item"
+                  >
+                    <a
+                      data-cy="nav-link-methodology"
+                      href="/en/methodology"
+                    >
+                      Methodology & data
+                    </a>
+                  </li>
+                  <li
+                    class="usa-nav__submenu-item"
+                  >
+                    <a
+                      data-cy="nav-link-downloads"
+                      href="/en/downloads"
+                    >
+                      Downloads
+                    </a>
+                  </li>
+                  <li
+                    class="usa-nav__submenu-item"
+                  >
+                    <a
+                      data-cy="nav-link-previous-versions"
+                      href="/en/previous-versions"
+                    >
+                      Previous versions
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="usa-nav__primary-item"
+              >
+                <button
+                  aria-controls="aboutMenu"
+                  aria-expanded="false"
+                  class="usa-accordion__button usa-nav__link"
+                  data-cy="nav-dropdown-about"
+                  data-testid="navDropDownButton"
+                  type="button"
+                >
+                  <span>
+                    About
+                  </span>
+                </button>
+                <ul
+                  class="usa-nav__submenu"
+                  hidden=""
+                  id="aboutMenu"
+                >
+                  <li
+                    class="usa-nav__submenu-item"
+                  >
+                    <a
+                      data-cy="nav-link-about"
+                      href="/en/about"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li
+                    class="usa-nav__submenu-item"
+                  >
+                    <a
+                      data-cy="nav-link-public-engagement"
+                      href="/en/public-engagement"
+                    >
+                      Engagement calendar
+                    </a>
+                  </li>
+                  <li
+                    class="usa-nav__submenu-item"
+                  >
+                    <a
+                      data-cy="nav-link-faqs"
+                      href="/en/frequently-asked-questions"
+                    >
+                      Frequently asked questions
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="usa-nav__primary-item"
+              >
+                <a
+                  data-cy="nav-link-contact"
+                  href="/en/contact"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid-container-desktop-lg"
+      data-testid="gridContainer"
+    >
+      <div
+        class="usa-alert usa-alert--info"
+        data-testid="alert"
+      >
+        <div
+          class="usa-alert__body"
+        >
+          <h1
+            class="usa-alert__heading"
+          >
+            Version 1.0 of the tool is now available
+          </h1>
+          <p
+            class="usa-alert__text"
+          >
+            The Council on Environmental Quality (CEQ) made the version 1.0 of the tool available on 11/22/2022. For more information about the improvements to the tool, read CEQ's 
+            <a
+              class="usa-link usa-link--external"
+              data-cy=""
+              href="https://www.whitehouse.gov/ceq/news-updates/2022/11/22/biden-harris-administration-launches-version-1-0-of-climate-and-economic-justice-screening-tool-key-step-in-implementing-president-bidens-justice40-initiative/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              press release
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main
+    id="main-content"
+  >
+    <div
+      class="grid-container-desktop-lg"
+      data-testid="gridContainer"
+    >
+      <section
+        class="page-heading"
+      >
+        <h1>
+          Downloads
+        </h1>
+        <div>
+          <a
+            href="/en/public-engagement"
+          >
+            <button
+              class="usa-button"
+              data-testid="button"
+              type="button"
+            >
+              <div>
+                <img
+                  alt="an icon that represents a calendar"
+                  src="test-file-stub"
+                />
+                <div>
+                  Public engagement
+                </div>
+              </div>
+            </button>
+          </a>
+        </div>
+      </section>
+      <div
+        class="grid-row grid-gap j40-mb5-mt3"
+        data-testid="grid"
+      >
+        <div
+          class="grid-col-12 tablet:grid-col-8"
+          data-testid="grid"
+        >
+          <h2
+            class="j40-mt-0 j40-mb-3"
+          >
+            Version 1.0 file formats
+          </h2>
+          <section>
+            <div>
+              <span>
+                View 
+                <a
+                  aria-controls="releaseUpdate-panel"
+                  class="usa-link"
+                  href="javascript:void(0)"
+                  id="releaseUpdate-header"
+                  tabindex="0"
+                >
+                  release notes
+                </a>
+                <img
+                  alt="expand icon"
+                  src="test-file-stub"
+                />
+              </span>
+              <section
+                aria-labelledby="releaseUpdate-header"
+                hidden=""
+                id="releaseUpdate-panel"
+              >
+                <div>
+                  <div>
+                    Version 1.0 Release update - Nov 22, 2022
+                  </div>
+                  <div>
+                    New & improved
+                  </div>
+                  <div>
+                    <ul>
+                      <li>
+                        Added lands within the boundaries of Federally Recognized Tribes and 
+    locations of Alaska Native Villages using data from the Bureau of Indian
+    Affairs at the U.S. Department of the Interior
+                      </li>
+                      <ul>
+                        <li>
+                          Added new data for indicators of burden
+                        </li>
+                        <li>
+                          Climate change
+                        </li>
+                        <ul>
+                          <li>
+                            Projected flood risk
+                          </li>
+                          <li>
+                            Projected wildfire risk
+                          </li>
+                        </ul>
+                        <li>
+                          Housing
+                        </li>
+                        <ul>
+                          <li>
+                            Historic underinvestment due to redlining
+                          </li>
+                          <li>
+                            Lack of green space
+                          </li>
+                          <li>
+                            Lack of plumbing
+                          </li>
+                        </ul>
+                        <li>
+                          Legacy pollution
+                        </li>
+                        <ul>
+                          <li>
+                            Abandoned mine lands
+                          </li>
+                          <li>
+                            Formerly used defense sites
+                          </li>
+                        </ul>
+                        <li>
+                          Transportation
+                        </li>
+                        <ul>
+                          <li>
+                            Transportation barriers
+                          </li>
+                        </ul>
+                        <li>
+                          Water and wastewater
+                        </li>
+                        <ul>
+                          <li>
+                            Underground storage tanks and releases
+                          </li>
+                        </ul>
+                      </ul>
+                      <li>
+                        Included communities that are completely surrounded by other 
+    disadvantaged communities and that meet an adjusted low income 
+    threshold
+                      </li>
+                      <li>
+                        Made technical changes to enhance accuracy of the tool
+                      </li>
+                      <ul>
+                        <li>
+                          Removed income data for students enrolled in higher education in the low income indicator
+                        </li>
+                        <li>
+                          Imputed income for census tracts missing income data
+                        </li>
+                        <li>
+                          Used transportation barriers and expected population loss rate 
+    data burdens only for census tracts with populations of 20 or 
+    more to exclude areas such as airports
+                        </li>
+                      </ul>
+                      <li>
+                        Improved the user interface
+                      </li>
+                      <ul>
+                        <li>
+                          Added demographics (race & age) for census tracts to map side panel
+                        </li>
+                        <li>
+                          Improved the design of the map side panel
+                        </li>
+                        <li>
+                          Updated the site copy of the website
+                        </li>
+                      </ul>
+                      <li>
+                        Added new data for all the U.S. Territories, and also made a small methodology change for Puerto Rico
+                      </li>
+                      <ul>
+                        <li>
+                          USVI
+                        </li>
+                        <ul>
+                          <li>
+                            Included data from 2010 decennial census for US Virgin Islands
+                          </li>
+                        </ul>
+                        <li>
+                          Guam
+                        </li>
+                        <ul>
+                          <li>
+                            Included data from 2010 decennial census for Guam
+                          </li>
+                        </ul>
+                        <li>
+                          Puerto Rico
+                        </li>
+                        <ul>
+                          <li>
+                            Removed linguistic isolation as an indicator in the methodology for Puerto Rico
+                          </li>
+                          <li>
+                            Imported additional available data for Puerto Rico
+                          </li>
+                          <ul>
+                            <li>
+                              Energy cost
+                            </li>
+                            <li>
+                              Housing cost
+                            </li>
+                            <li>
+                              Abandoned mine lands
+                            </li>
+                            <li>
+                              Proximity to hazardous waste sites
+                            </li>
+                            <li>
+                              Proximity to Superfund (National Priorities List (NPL)) sites
+                            </li>
+                            <li>
+                              Proximity to Risk Management Plan (RMP) sites
+                            </li>
+                          </ul>
+                        </ul>
+                      </ul>
+                      <li>
+                        Enhanced the technical files:
+                      </li>
+                      <ul>
+                        <li>
+                          Added all new data indicators and demographics to .xls, .csv, and shapefiles
+                        </li>
+                        <li>
+                          Added previous versions page to access the beta version’s 
+    download files
+                        </li>
+                        <li>
+                          Updated codebook
+                        </li>
+                        <li>
+                          Updated Technical Support Document
+                        </li>
+                      </ul>
+                      <li>
+                        Improved the way that users provide feedback on the tool:
+                      </li>
+                      <ul>
+                        <li>
+                          Data survey
+                        </li>
+                        <li>
+                          Site experience survey
+                        </li>
+                        <li>
+                          Census tract feedback
+                        </li>
+                        <li>
+                          General contact form
+                        </li>
+                      </ul>
+                      <li>
+                        Added a link to sign up for email mailing list managed by CEQ
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    Fixes
+                  </div>
+                  <div>
+                    <ul>
+                      <li>
+                        Bug fix: loaded missing life expectancy data for Maine and Wisconsin
+                      </li>
+                      <li>
+                        Bug fix: Census tracts that are 100% water should not be 
+    included on the map
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    release version 1.0
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+          <p>
+            The dataset used in the 1.0 version of the tool, along with a codebook, and information about how to use the list of communities (.pdf) are available for download:
+          </p>
+          <p>
+            
+      
+            <a
+              class="usa-link"
+              download=""
+              href="//"
+            >
+              Communities list data
+            </a>
+            <img
+              alt="The icon used to indicate that the file is downloadable"
+              src="test-file-stub"
+            />
+             (.xlsx 35.6MB)
+      
+          </p>
+          <p>
+            <a
+              class="usa-link"
+              download=""
+              href="//"
+            >
+              Communities list data
+            </a>
+            <img
+              alt="The icon used to indicate that the file is downloadable"
+              src="test-file-stub"
+            />
+             (.csv 42MB)
+          </p>
+          <p>
+            <a
+              class="usa-link"
+              download=""
+              href="//"
+            >
+              Shapefile
+            </a>
+            <img
+              alt="The icon used to indicate that the file is downloadable"
+              src="test-file-stub"
+            />
+             (Codebook included with shapefile 356.8MB unzipped)
+          </p>
+          <p>
+            <a
+              class="usa-link usa-link--external"
+              data-cy=""
+              href="//"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Technical support document
+            </a>
+             (.pdf 4.4MB)
+          </p>
+          <p>
+            <a
+              class="usa-link usa-link--external"
+              data-cy=""
+              href="//"
+              rel="noreferrer"
+              target="_blank"
+            >
+              How to use the list of communities
+            </a>
+             (.pdf 687.9kB)
+          </p>
+        </div>
+        <div
+          class="grid-col-12 tablet:grid-col-1"
+          data-testid="grid"
+        />
+      </div>
+    </div>
+  </main>
+  <footer
+    class="j40-footer"
+  >
+    <div
+      class="usa-footer__primary-section pb2"
+      data-cy="footer-primary-block"
+    >
+      <div
+        class="grid-container-desktop-lg"
+        data-testid="gridContainer"
+      >
+        <div
+          class="grid-row tablet-lg:grid-col4"
+        >
+          <div
+            class="mobile-lg:grid-col-12 desktop:grid-col-4"
+          >
+            <section>
+              <div
+                class="j40-h4"
+              >
+                Contact
+              </div>
+              <ul
+                class="usa-list usa-list--unstyled"
+              >
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <address
+                    class="usa-footer__address j40-footer-address"
+                  >
+                    <div
+                      class="usa-footer__contact-info grid-row grid-gap"
+                    >
+                      <div
+                        class="grid-col-auto"
+                      >
+                        Council on Environmental Quality
+                      </div>
+                      <div
+                        class="grid-col-auto"
+                      >
+                        730 Jackson Pl NW
+                      </div>
+                      <div
+                        class="grid-col-auto"
+                      >
+                        Washington, D.C. 20506
+                      </div>
+                      <div
+                        class="grid-col-auto"
+                      >
+                        (202) 395-5750
+                      </div>
+                    </div>
+                  </address>
+                </li>
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy="sign-up-for-updates"
+                    href="https://lp.constantcontactpages.com/su/Vm8pCFj/spring"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Sign up for updates
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div
+            class="mobile-lg:grid-col-12 desktop:grid-col-4"
+          >
+            <section>
+              <div
+                class="j40-h4"
+              >
+                More information
+              </div>
+              <ul
+                class="usa-list usa-list--unstyled"
+              >
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <a
+                    class="usa-link usa-link--external footer-link-first-child"
+                    data-cy="whitehouse-gov"
+                    href="https://www.whitehouse.gov/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Whitehouse.gov
+                  </a>
+                </li>
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy="freedom-of-information-act-(foia)"
+                    href="https://www.whitehouse.gov/ceq/foia"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Freedom of Information Act (FOIA)
+                  </a>
+                </li>
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy="privacy-policy"
+                    href="https://www.whitehouse.gov/privacy/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy="find-a-contact-at-usa-gov"
+                    href="https://www.usa.gov/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Find a contact at USA.gov
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div
+            class="mobile-lg:grid-col-12 desktop:grid-col-4"
+          >
+            <section>
+              <div
+                class="j40-h4"
+              >
+                Want to contribute?
+              </div>
+              <ul
+                class="usa-list usa-list--unstyled"
+              >
+                <li
+                  class="usa-footer__secondary-link"
+                >
+                  <a
+                    class="usa-link usa-link--external footer-link-first-child"
+                    data-cy="check-out-the-code-on-github"
+                    href="https://github.com/usds/justice40-tool"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Check out the code on GitHub
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="usa-footer__secondary-section"
+    >
+      <div
+        class="grid-container-desktop-lg"
+        data-testid="gridContainer"
+      >
+        <div
+          class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2"
+          data-testid="footerLogo"
+        >
+          <div
+            class="mobile-lg:grid-col-auto"
+          >
+            <img
+              alt="Whitehouse logo"
+              class="usa-footer__logo-img"
+              src="test-file-stub"
+            />
+          </div>
+          <div
+            class="mobile-lg:grid-col-auto"
+          >
+            <div
+              class="j40-footer-ceq-font"
+            >
+              Council on Environmental Quality
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid-container-desktop-lg"
+      data-testid="gridContainer"
+    >
+      <a
+        href="https://www.surveymonkey.com/r/P3LWTSB"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <button
+          class="usa-button"
+          data-testid="button"
+          type="button"
+        >
+          Help improve the tool
+          <img
+            alt="launch icon"
+            src="test-file-stub"
+          />
+        </button>
+      </a>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

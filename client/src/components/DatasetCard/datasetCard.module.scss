@@ -1,0 +1,74 @@
+@use '../../styles/design-system.scss' as *;
+@import '../utils.scss';
+
+@mixin baseCard {
+  padding: 2.7rem 3rem 3rem 3rem;
+  margin-bottom: 3rem;
+  max-width: 34rem;
+}
+
+.datasetCard {
+  @include baseCard;
+  @include u-bg("gray-3");
+}
+
+.datasetCardAdditional {
+  @include baseCard;
+  background-color: $additionalCardsBGColor;
+}
+
+.datasetCardIndicator {
+  margin-top: 0;
+  font-size: x-large;
+  margin-bottom: 0.8rem;
+}
+
+.datasetCardWhatIsIt {
+  margin-bottom: 0;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.datasetCardList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1.6rem;
+}
+
+.datasetCardListItem {
+  margin-bottom: 0.4rem;
+  font-size: large;
+}
+
+
+.datasetCardListItemSource {
+  @include u-margin-top(2);
+  margin-bottom: 0.4rem;
+  font-size: large;
+}
+
+.datasetCardDescription {
+  font-size: large;
+  padding-top: 0.3rem;
+  line-height: 1.5rem;
+}
+
+.datasetCardLabels {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.datasetCardHeader{
+  display: flex;
+}
+
+.tagContainer {
+  @include u-margin-right(1);
+  @include u-margin-top("05");
+}
+
+.newTag {
+  @include u-bg('yellow-20v');
+  @include u-text('blue-70v');
+  font-weight: bolder;
+}

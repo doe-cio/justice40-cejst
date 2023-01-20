@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the MapLegend checks if snapshots have changed 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Color key
+    </div>
+    <div>
+      <div />
+      <div>
+        <div
+          class="j40-h4"
+        >
+          Disadvantaged community
+        </div>
+        <p
+          class="secondary"
+        >
+          
+      Communities identified as disadvantaged by the map are those that are marginalized, underserved, 
+      and overburdened by pollution. These communities are at or above the thresholds in one or 
+      more of eight categories of criteria.
+    
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the SurveyButton checks if component renders 1`] = `
+<DocumentFragment>
+  <div
+    class="grid-container-desktop-lg"
+    data-testid="gridContainer"
+  >
+    <a
+      href="https://www.surveymonkey.com/r/P3LWTSB"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <button
+        class="usa-button"
+        data-testid="button"
+        type="button"
+      >
+        Help improve the tool
+        <img
+          alt="launch icon"
+          src="test-file-stub"
+        />
+      </button>
+    </a>
+  </div>
+</DocumentFragment>
+`;

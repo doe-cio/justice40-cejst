@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:8000/",
+  "integrationFolder": "cypress/integration",
+  "chromeWebSecurity": false,
+  "trashAssetsBeforeRuns": true
+}

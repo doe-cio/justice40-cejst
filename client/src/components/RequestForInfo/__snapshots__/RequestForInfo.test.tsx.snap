@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the RequestForInfo checks if component renders 1`] = `
+<DocumentFragment>
+  <div
+    class="usa-summary-box"
+    data-testid="summary-box"
+  >
+    <div
+      class="usa-summary-box__body"
+    >
+      <h3
+        class="usa-summary-box__heading"
+      >
+        Request for Information
+      </h3>
+      <div
+        class="usa-summary-box__text"
+      >
+        <p>
+          The Request for Information on the Federal Register for the public beta period closed on May 25, 2022.
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,32 @@
+{
+  "_comment": "Markdown Link Checker configuration, see https://github.com/gaurav-nelson/github-action-markdown-link-check and https://github.com/tcort/markdown-link-check",
+  "ignorePatterns": [
+    {
+      "pattern": "^http://localhost"
+    },
+    {
+      "pattern": "yyyymmdd-xxx.md"
+    },
+    {
+      "pattern": "https://support.gatsbyjs.com/hc/en-us/articles/360053096273-Why-did-I-hit-Out-of-Memory-errors-"
+    },
+    {
+      "pattern": "^http://www.datasciencetoolkit.org"
+    },
+    {
+      "pattern": "^https://github.com/usds/environmental-justice/"
+    },
+    {
+      "pattern": "^https://.*medium.com"
+    },
+    {
+      "pattern": "^https://www.eeoc.gov"
+    }
+  ],
+  "replacementPatterns": [
+    {
+      "pattern": "^/",
+      "replacement": "{{BASEURL}}/"
+    }
+  ]
+}

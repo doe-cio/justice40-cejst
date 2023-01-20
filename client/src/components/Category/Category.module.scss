@@ -1,0 +1,19 @@
+@use '../../styles/design-system.scss' as *;
+
+.categoryContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .category {
+        flex-basis: 80%;
+    }
+}
+
+.disCategoryContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .category {
+        flex-basis: 80%;
+    }
+}

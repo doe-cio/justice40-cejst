@@ -1,0 +1,539 @@
+// other CSS libraries:
+@import "~@trussworks/react-uswds/lib/index.css";
+@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+
+/*
+According to the fundamental usage of USWDS:
+https://designsystem.digital.gov/documentation/fundamentals/
+
+There are 3 things that should be included in this file:
+*/
+
+// 1. Include or point to a USWDS settings file:
+@import "./uswds-settings.scss";
+
+// 2. Point to the USWDS source code:
+@import "../../node_modules/uswds";
+
+// 3. Include or point to your project's custom Sass
+/* 
+  Instead of having a separate file for these styles, all styles are being placed here.
+
+  Ideally, this file should only hold styles for when we need to override the USWDS component 
+  or the Trusswork component. J40 component styles should be contained in it's own component styles.
+
+  - GLOBAL STYLES
+  - HEADER STYLES
+  - MAIN CONTENT STYLES
+  - FOOTER STYLES
+  - MAP STYLES
+  - ACCORDION STYLES
+  - DEMOGRAPHICS STYLES
+  - PUBLIC EVENT STYLES
+  - ABOUT CARD STYLES
+  - SUMMARY BOX STYLES
+  - PREVIOUS VERSIONS STYLES
+  - FAQs PAGE STYLES
+*/
+
+
+
+/* 
+******************************
+*      GLOBAL STYLES
+****************************** 
+*/
+
+$primary-color: #112f4e;  // Used for header font color - selection color is #005EA2
+$j40-blue-background-color: #e7f2f5;  // Hex value of 'blue-cool-5'
+$disadvantaged-color-side-panel: #1a4480;
+
+// The j40-element mixin is used to create any font element. E.g. <h1>, <p> tags, etc.
+// Arguments to the mixins must be tokens from USWDS
+@mixin j40-element($font-size, $line-height, $font-weight, $margin-top, $margin-bottom: 0) {
+  @include typeset('sans', $font-size, $line-height); 
+  @include u-text($font-weight);  
+  @include u-margin-top($margin-top);
+  @include u-margin-bottom($margin-bottom);
+}
+
+h1 {
+  @include j40-element('3xl', 2, 'bold', 5 );
+}
+
+h2 {
+  @include j40-element('xl', 2, 'bold', 4 );
+}
+
+h3 {
+  @include j40-element('lg', 2, 'bold', 4 );
+}
+
+h4, .j40-h4 {
+  @include j40-element('sm', 1, 'bold', 3 );
+}
+
+h5 {
+  @include j40-element('md', 4, 'bold', 0 );
+}
+
+h6 {
+  @include j40-element('3xs', 1, 'normal', 0);
+}
+
+p {
+  @include j40-element('sm', 4, 'normal', 2.5);
+}
+
+p.secondary {
+  @include j40-element('3xs', 2, 'normal', .5);
+}
+
+p.flush {
+  @include j40-element('sm', 4, 'normal', 0);
+}
+
+// 24 pixel margin-bottom
+.j40-mb-3 {
+  @include u-margin-bottom(3);
+}
+
+.j40-mt-0 {
+  @include u-margin-top(0);  
+}
+
+.j40-footer-ceq-font {
+  @include j40-element('lg', 2, 'bold', 0 );
+}
+
+
+/* 
+******************************
+*      HEADER STYLES
+****************************** 
+*/
+
+li.usa-nav__primary-item {
+  width: max-content;
+
+  @include at-media-max('desktop') {
+    width: unset;
+  }
+}
+
+li.usa-nav__primary-item a {
+  display: block;
+  position: relative;
+}
+
+li.usa-nav__primary-item a:hover::after{
+    background-color: #005ea2;
+    border-radius: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0.25rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: -0.25rem;
+}
+
+.remove-link-style {
+  text-decoration: none;
+  color: #1b1b1b;
+}
+
+/* 
+******************************
+*      MAIN CONTENT STYLES
+****************************** 
+*/
+
+/* this is used by J40MainGridContainer to show a blue background */
+.j40-main-grid-blue-bk {
+  @include u-bg('blue-cool-5');  
+  
+  // This style is to remove the margin collapse occuring
+  @include u-border-top(1px);
+  @include u-border-top('solid');
+  @include u-border-top('blue-cool-5');
+}
+
+#main-content {
+  border-top: 0; // The main content has border this removes it
+  min-height: 60vh; // Contact page's content is not enough to fill page so this keeps the footer low
+
+  .page-heading {
+    display: flex;
+    justify-content: space-between;
+
+    @include at-media-max("tablet"){
+      flex-direction: column;
+    }
+  }
+  .j40-mb5-mt3 {
+    @include u-margin-bottom(5);
+    @include u-margin-top(3);
+  }
+
+  .j40-mt3 {
+    @include u-margin-top(3);
+  }
+
+  .j40-p-tag {
+    margin-top: 1.25rem;
+    font-size: 1.06rem;
+    line-height: 1.4;
+  }
+}
+
+// all external links
+.usa-link--external::after {
+  margin-top: .5ex !important;
+}
+
+// external links in the dataset Cards
+li[class*='datasetCard-module'] .usa-link--external::after {
+  margin-top: .2ex !important;
+}
+
+
+
+/* 
+******************************
+*      FOOTER STYLES
+****************************** 
+*/ 
+.j40-footer {
+  @include u-margin-top(4);
+  
+  .usa-footer__primary-section.pb2{
+    @include u-padding-bottom(2);
+  }
+
+  .j40-footer-address {
+    .usa-footer__contact-info {
+      @include typeset('sans', 4, 5); 
+      @include u-text('normal');  
+      @include u-display('inline-block');
+    }
+  }
+  
+  .footer-link-first-child{
+    @include u-display('inline-block');
+    @include u-margin-top(1.5)
+  }
+
+  // external links in the footer only
+  .usa-link--external::after {
+    margin-top: .2ex !important;
+  }
+}
+
+
+/* 
+******************************
+*      MAP STYLES
+****************************** 
+*/
+
+// Maplibre overrides
+// Note that these need to be here to properly override defaults
+
+
+/**
+Geolocate Icon Styling: 
+In mobile, the icon has 4 states; default, locating (class = *-waiting), locked (class = *-active) and panning (class = *-background).
+
+These overides change the active and background classes
+
+We are using #0076d6 or hsl(207, 100%, 42%) for all colors in relation to Geolocation.
+
+The reason the Icon was changed was to match the other overlayed icons - such as territory shortcuts. These other icons don't have multiple states embedded in them. This new color scheme creates ambiguity among two states, namely (off and locked) as they have the same exact style.
+*/
+.mapboxgl-ctrl {
+  button.mapboxgl-ctrl-geolocate.mapboxgl-ctrl-geolocate-active { 
+    .mapboxgl-ctrl-icon {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='29' height='29' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='hsl(207, 100%, 42%)'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 005.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 009 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 003.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0011 5.1V5s0-1-1-1zm0 2.5a3.5 3.5 0 110 7 3.5 3.5 0 110-7z'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E") !important;
+    }
+  }
+}
+.mapboxgl-ctrl {
+  button.mapboxgl-ctrl-geolocate.mapboxgl-ctrl-geolocate-background {
+    .mapboxgl-ctrl-icon {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='29' height='29' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='hsl(207, 100%, 42%)'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 005.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 009 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 003.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0011 5.1V5s0-1-1-1zm0 2.5a3.5 3.5 0 110 7 3.5 3.5 0 110-7z'/%3E%3C/svg%3E") !important;
+    }
+  }
+}
+
+/**
+Beacon - the beacon's color (*-location-dot) and proximity animation (::before), inner radius (::after) was changed and . The reason the beacon was changed was to increase the contrast between the beacon and the census tract layers
+*/
+.mapboxgl-user-location-dot, .mapboxgl-user-location-dot::before  {
+  background-color: #0076d6 !important;  
+}
+
+.mapboxgl-user-location-dot::after  {
+  border: 4px solid #FFF !important;
+}
+
+
+// Overide mapbox popup styles
+.mapboxgl-popup-close-button {
+  font-size: 3em;
+  margin-right: 12px;
+  margin-top: 15px;
+}
+.mapboxgl-popup-content {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5) !important;
+  border-radius: 8px !important;
+  pointer-events: all !important;
+  width: auto;
+}
+
+// Because we're using react-map-gl, you need to use
+// the mapboxgl- class name variables.
+// Maplibre has its own classnames with a maplibre prefix,
+// but it after 1.14.0 it optionally still allows for the mapbox-gl prefix
+
+// Below properties override mb defaults
+// .mapboxgl-ctrl-group:not(:empty) {
+//   box-shadow: none;
+// }
+
+// @media (-ms-high-contrast: active) {
+//   .mapboxgl-ctrl-group:not(:empty) {
+//     box-shadow: none;
+//   }
+// }
+
+// .mapboxgl-ctrl-group {
+//   border-radius: 0;
+// }
+
+.mapboxgl-ctrl {
+  // button + button {
+  //   border-top: 1px;
+  // }
+
+  button {
+    border-radius: 0;
+    height: 1.66em;
+    width: 1.66em;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+    font-size: 1.5em;
+
+    // It seems necessary to set an explicit size for one of the dimensions
+    // in order for this icon to be rendered correctly by gatsby build
+    // see more here: https://thatemil.com/blog/2014/04/06/intrinsic-sizing-of-svg-in-responsive-web-design/
+    .mapboxgl-ctrl-icon {
+      height: 1em;
+      pointer-events: none; /* this keeps the icons from "eating" the click events instead of the button getting them */
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-in {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../../node_modules/uswds/dist/img/usa-icons/add.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-out {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../../node_modules/uswds/dist/img/usa-icons/remove.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-48 {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-48.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-ak {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-AK.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-hi {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-HI.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-pr {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-PR.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-gu {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-GU.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-as {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-AS.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-mp {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-MP.svg");
+    }
+  }
+
+  button.mapboxgl-ctrl-zoom-to-vi {
+    .mapboxgl-ctrl-icon {
+      background-image: url("../images/mapbtn-VI.svg");
+    }
+  }
+}
+
+
+//As per Mikel Maron's (MapBox advocate) suggestion to use svg data URI override:
+a.mapboxgl-ctrl-logo { 
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='88' height='23' viewBox='0 0 88 23' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill-rule='evenodd'%3E %3Cdefs%3E %3Cpath id='logo' d='M11.5 2.25c5.105 0 9.25 4.145 9.25 9.25s-4.145 9.25-9.25 9.25-9.25-4.145-9.25-9.25 4.145-9.25 9.25-9.25zM6.997 15.983c-.051-.338-.828-5.802 2.233-8.873a4.395 4.395 0 013.13-1.28c1.27 0 2.49.51 3.39 1.42.91.9 1.42 2.12 1.42 3.39 0 1.18-.449 2.301-1.28 3.13C12.72 16.93 7 16 7 16l-.003-.017zM15.3 10.5l-2 .8-.8 2-.8-2-2-.8 2-.8.8-2 .8 2 2 .8z'/%3E %3Cpath id='text' d='M50.63 8c.13 0 .23.1.23.23V9c.7-.76 1.7-1.18 2.73-1.18 2.17 0 3.95 1.85 3.95 4.17s-1.77 4.19-3.94 4.19c-1.04 0-2.03-.43-2.74-1.18v3.77c0 .13-.1.23-.23.23h-1.4c-.13 0-.23-.1-.23-.23V8.23c0-.12.1-.23.23-.23h1.4zm-3.86.01c.01 0 .01 0 .01-.01.13 0 .22.1.22.22v7.55c0 .12-.1.23-.23.23h-1.4c-.13 0-.23-.1-.23-.23V15c-.7.76-1.69 1.19-2.73 1.19-2.17 0-3.94-1.87-3.94-4.19 0-2.32 1.77-4.19 3.94-4.19 1.03 0 2.02.43 2.73 1.18v-.75c0-.12.1-.23.23-.23h1.4zm26.375-.19a4.24 4.24 0 00-4.16 3.29c-.13.59-.13 1.19 0 1.77a4.233 4.233 0 004.17 3.3c2.35 0 4.26-1.87 4.26-4.19 0-2.32-1.9-4.17-4.27-4.17zM60.63 5c.13 0 .23.1.23.23v3.76c.7-.76 1.7-1.18 2.73-1.18 1.88 0 3.45 1.4 3.84 3.28.13.59.13 1.2 0 1.8-.39 1.88-1.96 3.29-3.84 3.29-1.03 0-2.02-.43-2.73-1.18v.77c0 .12-.1.23-.23.23h-1.4c-.13 0-.23-.1-.23-.23V5.23c0-.12.1-.23.23-.23h1.4zm-34 11h-1.4c-.13 0-.23-.11-.23-.23V8.22c.01-.13.1-.22.23-.22h1.4c.13 0 .22.11.23.22v.68c.5-.68 1.3-1.09 2.16-1.1h.03c1.09 0 2.09.6 2.6 1.55.45-.95 1.4-1.55 2.44-1.56 1.62 0 2.93 1.25 2.9 2.78l.03 5.2c0 .13-.1.23-.23.23h-1.41c-.13 0-.23-.11-.23-.23v-4.59c0-.98-.74-1.71-1.62-1.71-.8 0-1.46.7-1.59 1.62l.01 4.68c0 .13-.11.23-.23.23h-1.41c-.13 0-.23-.11-.23-.23v-4.59c0-.98-.74-1.71-1.62-1.71-.85 0-1.54.79-1.6 1.8v4.5c0 .13-.1.23-.23.23zm53.615 0h-1.61c-.04 0-.08-.01-.12-.03-.09-.06-.13-.19-.06-.28l2.43-3.71-2.39-3.65a.213.213 0 01-.03-.12c0-.12.09-.21.21-.21h1.61c.13 0 .24.06.3.17l1.41 2.37 1.4-2.37a.34.34 0 01.3-.17h1.6c.04 0 .08.01.12.03.09.06.13.19.06.28l-2.37 3.65 2.43 3.7c0 .05.01.09.01.13 0 .12-.09.21-.21.21h-1.61c-.13 0-.24-.06-.3-.17l-1.44-2.42-1.44 2.42a.34.34 0 01-.3.17zm-7.12-1.49c-1.33 0-2.42-1.12-2.42-2.51 0-1.39 1.08-2.52 2.42-2.52 1.33 0 2.42 1.12 2.42 2.51 0 1.39-1.08 2.51-2.42 2.52zm-19.865 0c-1.32 0-2.39-1.11-2.42-2.48v-.07c.02-1.38 1.09-2.49 2.4-2.49 1.32 0 2.41 1.12 2.41 2.51 0 1.39-1.07 2.52-2.39 2.53zm-8.11-2.48c-.01 1.37-1.09 2.47-2.41 2.47s-2.42-1.12-2.42-2.51c0-1.39 1.08-2.52 2.4-2.52 1.33 0 2.39 1.11 2.41 2.48l.02.08zm18.12 2.47c-1.32 0-2.39-1.11-2.41-2.48v-.06c.02-1.38 1.09-2.48 2.41-2.48s2.42 1.12 2.42 2.51c0 1.39-1.09 2.51-2.42 2.51z'/%3E %3C/defs%3E %3Cmask id='clip'%3E %3Crect x='0' y='0' width='100%25' height='100%25' fill='white'/%3E %3Cuse xlink:href='%23logo'/%3E %3Cuse xlink:href='%23text'/%3E %3C/mask%3E %3Cg id='outline' opacity='0.3' stroke='%23000' stroke-width='3'%3E %3Ccircle mask='url(/studio-manual/assets/%23clip)' cx='11.5' cy='11.5' r='9.25'/%3E %3Cuse xlink:href='%23text' mask='url(/studio-manual/assets/%23clip)'/%3E %3C/g%3E %3Cg id='fill' opacity='0.9' fill='%23fff'%3E %3Cuse xlink:href='%23logo'/%3E %3Cuse xlink:href='%23text'/%3E %3C/g%3E %3C/svg%3E") !important;
+};
+
+
+/* 
+******************************
+*      ACCORDION STYLES
+****************************** 
+*/
+.usa-accordion__content {
+  padding-bottom: 0;
+}
+
+// The following two styles will only work in browsers that support the ":has" selector
+button.usa-accordion__button:has(div[class*="disCategoryContainer"])  {
+  background-color: $disadvantaged-color-side-panel;
+  background-image: url("../images/sidePanelIcons/accordion-plus.svg");
+
+  div[class*="disCategoryContainer"]{
+    color: white;
+  }
+}
+button.usa-accordion__button[aria-expanded=true]:has(div[class*="disCategoryContainer"])  {
+  background-image: url("../images/sidePanelIcons/accordion-minus.svg");
+}
+
+/* 
+******************************
+*      DEMOGRAPHICS STYLES
+****************************** 
+*/
+
+[class*="demographicsContainer"]{
+
+  .usa-accordion__heading {
+      font-size: .8rem;
+
+      .usa-accordion__button{
+        background-color: white;
+        padding: .6rem;
+      }
+  }
+
+  .usa-accordion__content {
+    padding-top: 0;
+  }
+}
+
+/* 
+***************************************
+*      PUBLIC EVENT STYLES
+*************************************** 
+*/ 
+
+.usa-collection__body{
+  width: 0;
+}
+
+
+/* 
+******************************
+*      ABOUT CARD STYLES
+****************************** 
+*/
+
+/* about card - based on datasetCard... Todo: need to combine */
+.j40-aboutcard-container {
+
+  .j40-aboutcard-lg-card {
+    margin: 1.2rem 0 3rem 0;
+
+    .j40-aboutpage-image-container {
+      width: 10.5rem;
+      padding: 1.24rem 1.24rem 0 .24rem;
+    }
+
+    .j40-aboutcard-image {
+      flex: 1 0 10%;
+      align-self: flex-start;
+      @include u-margin-top(5);
+    }
+
+    // .j40-aboutcard-link {
+    //   font-weight: bold;
+    // }
+  }
+
+  .j40-aboutcard-sm-card {
+    margin: 1.2rem 0 3rem 0;
+
+    .j40-aboutpage-image-container {
+      padding: 1.24rem 1.24rem 0 .24rem;
+    }
+
+    .j40-aboutcard-image {
+      width: 3rem;
+    }
+
+    div.j40-aboutcard-sm-link {
+      @include u-margin-top(2);
+    }
+  }
+}
+
+/* 
+******************************
+*      SUMMARY BOX STYLES
+****************************** 
+*/
+.usa-summary-box__heading {
+  @include u-margin-bottom(2);
+}
+
+/* 
+******************************
+*      PREVIOUS VERSIONS STYLES
+****************************** 
+*/
+
+.previous-versions-container {
+  list-style: none;
+}
+
+.previous-versions-container .usa-card__header, .usa-card__heading, .usa-card__body, .usa-card__footer {
+  font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", "sans-serif" !important;
+}
+
+/* 
+******************************
+*      FAQs PAGE STYLES
+****************************** 
+*/
+
+.faqs-dot-alignment{
+  align-self: flex-start;
+  padding-top: 5px;
+}

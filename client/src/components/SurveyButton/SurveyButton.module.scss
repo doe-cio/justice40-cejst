@@ -1,0 +1,34 @@
+@use '../../styles/design-system.scss' as *;
+
+.surveyButtonContainer {
+  position: relative;
+
+  .surveyButton {
+    position: fixed;
+    bottom: 0;
+    right: 2.2rem;
+
+    @include at-media-max("desktop") {
+      right: 0;
+    }
+    border-radius: 5px 5px 0 0;
+    @include u-height(6);
+    z-index: 2;
+
+    @include u-text("blue-70v");
+    @include u-bg("yellow-20v");
+
+    &:hover {
+      @include u-bg("yellow-20");
+      @include u-text("gray-90");
+    }
+
+    .launchIcon {
+      height: .8rem;
+      // @include u-margin-bottom('neg-05');
+
+      // Change color of USWDS icon
+      filter: invert(13%) sepia(76%) saturate(5142%) hue-rotate(192deg) brightness(80%) contrast(106%);
+    }
+  }
+}

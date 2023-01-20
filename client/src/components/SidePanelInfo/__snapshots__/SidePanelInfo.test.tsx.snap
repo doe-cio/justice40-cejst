@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the component expects the render to match snapshot 1`] = `
+<DocumentFragment>
+  <aside>
+    <header
+      tabindex="0"
+    >
+      
+      How to use the map:
+    
+    </header>
+    <p
+      tabindex="0"
+    >
+      
+      Zoom in
+    
+      <img
+        alt="
+      a plus icon indicating that the user can zoom in
+    *"
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      , search
+    
+      <img
+        alt="
+      a magnifying glass icon informing the user can search
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      , or locate yourself 
+    
+      <img
+        alt="
+      a gps icon informing the user can locate
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      and select
+    
+      to see information about any census tract.
+    
+    </p>
+    <p
+      tabindex="0"
+    >
+      
+     Things to know:
+    
+    </p>
+    <p
+      tabindex="0"
+    >
+      
+      The tool uses census tracts
+    
+      <img
+        alt="
+      a tract icon informing the user of census tracts
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+    . Census tracts are a small unit of geography. They generally have populations 
+    
+      <img
+        alt="
+      a people icon informing the user of communities
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      of between 1,200 - 8,000 people.
+    
+    </p>
+    <p
+      tabindex="0"
+    >
+      
+      Communities that are disadvantaged live in tracts that experience burdens. These tracts are highlighted 
+    
+      <img
+        alt="
+      a blue circle icon informing the user of what a disadvantaged community is depicted as
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+    on the map.
+    
+    </p>
+    <p
+      tabindex="0"
+    >
+      
+      The tool ranks most of the burdens using percentiles
+    
+      <img
+        alt="
+      An icon that a bell curve or gaussian distribution
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+    . Percentiles show how much burden each tract experiences when compared to other tracts.
+    
+    </p>
+    <p
+      tabindex="0"
+    >
+      
+      Thresholds
+    
+      <img
+        alt="
+      An icon shows a up arrow with a lower limit implying that it's above a threshold
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+    , or cutoffs, are used to determine if communities in a tract are disadvantaged. Certain burdens use percentages 
+    
+      <img
+        alt="
+      An icon that depicts a part of pie chart being removed
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      or a simple yes/no
+    
+      <img
+        alt="
+      An icon that depicts a check mark conveying yes and/or no
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      .
+    
+    </p>
+    <p
+      tabindex="0"
+    >
+      
+      Land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages are highlighted
+    
+      <img
+        alt="
+      a blue circle icon informing the user of what a disadvantaged community is depicted as
+    "
+        src="test-file-stub"
+        tabindex="0"
+      />
+      
+      on the map. These communities are also considered disadvantaged.
+    
+    </p>
+  </aside>
+</DocumentFragment>
+`;

@@ -1,0 +1,39 @@
+/*
+ This file is meant to hold styles that are shared with other SASS modules.
+ You can import this file into other SASS file to re-use styles.
+
+ Todo Design System: replace colors with tokens. Once these styles become more general the name can be less specific
+*/
+
+//Styles associated with the side panel
+$sidePanelBorderColor: #F2F2F2;
+$sidePanelBorder: 2px solid $sidePanelBorderColor;
+$mobileBreakpoint: 400px; // Todo replace with USWDS breakpoint
+$disadvantagedDotColor: #1A4480;
+$additionalCardsBGColor: #FAFAFA;
+$sidePanelLabelFontColor: #171716;
+
+@mixin sidePanelLabelStyle {
+    font-size: medium;
+    color: $sidePanelLabelFontColor;
+    font-weight: 600;
+  }
+  
+
+//Styles with Dataset container
+$datasetContainerColor: #EEF6FB;
+$headingFontColor: #122E51;
+$j40AlertWarningColor: #FAF3D1;
+
+@mixin invert {
+  background-color: $disadvantagedDotColor;
+  color: white;
+  @include u-padding-left('05');
+  @include u-padding-right('05');
+}
+
+@mixin indicatorValueSubTextContainer {
+  text-align: right;
+  @include typeset('sans', 'micro', 2);
+  @include u-text('thin'); 
+}

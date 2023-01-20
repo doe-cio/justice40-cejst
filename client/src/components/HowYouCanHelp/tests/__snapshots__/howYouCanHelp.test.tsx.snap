@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering of the HowYouCanHelp checks if various text fields are visible 1`] = `
+<DocumentFragment>
+  <div>
+    <h2>
+      How you can help improve the map
+    </h2>
+    <ul>
+      <li>
+        Provide 
+        <a
+          class="usa-link usa-link--external"
+          data-cy=""
+          href="https://www.surveymonkey.com/r/P3LWTSB"
+          rel="noreferrer"
+          target="_blank"
+        >
+          general feedback
+        </a>
+         on the CEJST website
+      </li>
+      <li>
+        Suggest new 
+        <a
+          class="usa-link usa-link--external"
+          data-cy=""
+          href="https://www.surveymonkey.com/r/6G9TQJ8"
+          rel="noreferrer"
+          target="_blank"
+        >
+          data sources
+        </a>
+        .
+      </li>
+      <li>
+        Any other questions? The best way to contact the Council on Environmental Quality (CEQ) is by filling out this 
+        <a
+          class="usa-link usa-link--external"
+          data-cy=""
+          href="https://www.surveymonkey.com/r/5LZ7MNB"
+          rel="noreferrer"
+          target="_blank"
+        >
+          form
+        </a>
+         . Otherwise, email: 
+        <a
+          class="usa-link"
+          href="/en/methodology"
+        >
+          Screeningtool-Support@omb.eop.gov
+        </a>
+      </li>
+    </ul>
+    <p>
+      
+      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.    
+    
+    </p>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,47 @@
+# This runs tox in the two directories under data
+name: Data Checks
+on:
+  pull_request:
+    branches:
+      - main
+      - "**/release/**"
+    paths:
+      - "data/**"
+jobs:
+  data-pipeline:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: data/data-pipeline
+    strategy:
+      matrix:
+        # checks all of the versions allowed in pyproject.toml
+        python-version: [3.8, 3.9]
+    steps:
+      # installs Python
+      # one execution of the tests per version listed above
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Upgrade wheel
+        run: pip install -U wheel
+      - name: Print variables to help debug
+        uses: hmarr/debug-action@v2
+      - name: Load cached Poetry installation
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: env-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/data-checks.yml') }}
+      - name: Install poetry
+        uses: snok/install-poetry@v1
+      - name: Print Poetry settings
+        run: poetry show -v
+      - name: Install dependencies
+        run: poetry install
+        # TODO: investigate why caching layer started failing.
+        # if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      - name: Run tox
+        run: poetry run tox

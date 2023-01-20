@@ -1,0 +1,24 @@
+@use '../../styles/design-system.scss' as *;
+
+.sidePanelInfoContainer {
+  display: flex;
+  flex-direction: column;
+  @include u-padding-right(4);
+  @include u-padding-left(4);
+  @include u-padding-bottom(4);
+
+  .sidePanelInfoTitle {
+    @include u-padding-top(2);
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  .sidePanelInfoHeading {
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  .sidePanelInfoIcon {
+    @include u-height(2);
+  }
+}
