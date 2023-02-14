@@ -1,4 +1,4 @@
-name: Deploy Frontend Staging
+name: Test GCP Auth and Upload Actions" 
 on:
   workflow_dispatch:
     branches:
