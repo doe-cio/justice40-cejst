@@ -1,4 +1,4 @@
-name: Test GCP Auth and Upload Actions" 
+name: Test GCP Auth and Upload
 on:
   workflow_dispatch:
     branches:
