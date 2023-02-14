@@ -1,8 +1,10 @@
 name: Test GCP Auth and Upload
 on:
-  workflow_dispatch:
+  push:
     branches:
       - gcp_workflows
+
+  workflow_dispatch:
     paths:
       - "client/**/*"
 env:
