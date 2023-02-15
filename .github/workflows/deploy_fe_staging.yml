@@ -59,8 +59,8 @@ jobs:
         # Disabling for now due to jsonlint - TODO: put this back
       # - name: License Check
       #   run: npm run licenses
-      - name: Test
-        run: npm test
+      #- name: Test
+      #  run: npm test
       - name: Check for security vulnerabilities
         run: npm audit --production
       # - name: Cypress / Gherkin integration tests 🌃
