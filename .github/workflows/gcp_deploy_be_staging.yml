@@ -7,7 +7,7 @@ on:
     paths:
       - "data/**"
 
-  push_request:
+  push:
     branches:
       - gcp_workflows
     paths:
