@@ -94,6 +94,8 @@ jobs:
           destination: 'justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/csv'
           parent: false
 
+      - id: 'upload-files2'
+        with:
           path: ./data_pipeline/files/
           destination: 'justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/downloadable'
           parent: false
