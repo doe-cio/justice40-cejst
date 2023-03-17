@@ -22,6 +22,8 @@ from data_pipeline.etl.sources.us_army_fuds.etl import USArmyFUDS
 from data_pipeline.score import field_names
 from data_pipeline.score.score_runner import ScoreRunner
 from data_pipeline.utils import get_module_logger
+from data_pipeline.etl.datasource import DataSource
+
 
 logger = get_module_logger(__name__)
 
@@ -55,8 +57,12 @@ class ScoreETL(ExtractTransformLoad):
 
         self.ISLAND_DEMOGRAPHIC_BACKFILL_FIELDS: List[str] = []
 
-    def extract(self) -> None:
-        logger.info("Loading data sets from disk.")
+    def get_data_sources(self) -> [DataSource]:
+        return (
+            []
+        )  # we have all prerequisite sources locally as a result of running the ETLs
+
+    def extract(self, use_cached_data_sources: bool = False) -> None:
 
         # EJSCreen csv Load
         ejscreen_csv = constants.DATA_PATH / "dataset" / "ejscreen" / "usa.csv"
@@ -200,7 +206,7 @@ class ScoreETL(ExtractTransformLoad):
         )
 
     def _join_tract_dfs(self, census_tract_dfs: list) -> pd.DataFrame:
-        logger.info("Joining Census Tract dataframes")
+        logger.debug("Joining Census Tract dataframes")
 
         def merge_function(
             left: pd.DataFrame, right: pd.DataFrame
@@ -317,7 +323,7 @@ class ScoreETL(ExtractTransformLoad):
                 ~df[field_names.GEOID_TRACT_FIELD].isin(drop_tracts),
                 np.nan,
             )
-            logger.info(
+            logger.debug(
                 f"Creating special case column for percentiles from {input_column_name}"
             )
             df[
@@ -335,7 +341,7 @@ class ScoreETL(ExtractTransformLoad):
 
     # TODO Move a lot of this to the ETL part of the pipeline
     def _prepare_initial_df(self) -> pd.DataFrame:
-        logger.info("Preparing initial dataframe")
+        logger.debug("Preparing initial dataframe")
 
         # Join all the data sources that use census tracts
         census_tract_dfs = [
@@ -377,7 +383,7 @@ class ScoreETL(ExtractTransformLoad):
         assert (
             census_tract_df.shape[0] <= pre_join_len
         ), "Join against national tract list ADDED rows"
-        logger.info(
+        logger.debug(
             "Dropped %s tracts not in the 2010 tract data",
             pre_join_len
             - census_tract_df[field_names.GEOID_TRACT_FIELD].nunique(),
@@ -560,7 +566,7 @@ class ScoreETL(ExtractTransformLoad):
         for col in boolean_columns:
             tmp = df_copy[col].copy()
             df_copy[col] = np.where(tmp.notna(), tmp.astype(bool), None)
-            logger.info(f"{col} contains {df_copy[col].isna().sum()} nulls.")
+            logger.debug(f"{col} contains {df_copy[col].isna().sum()} nulls.")
 
         # Convert all columns to numeric and do math
         # Note that we have a few special conditions here and we handle them explicitly.
@@ -591,7 +597,7 @@ class ScoreETL(ExtractTransformLoad):
                     .astype(bool)
                     .fillna(False)
                 ][field_names.GEOID_TRACT_FIELD].to_list()
-                logger.info(
+                logger.debug(
                     f"Dropping {len(drop_tracts)} tracts from Agricultural Value Loss"
                 )
             elif numeric_column == field_names.LINGUISTIC_ISO_FIELD:
@@ -599,7 +605,7 @@ class ScoreETL(ExtractTransformLoad):
                     # 72 is the FIPS code for Puerto Rico
                     df_copy[field_names.GEOID_TRACT_FIELD].str.startswith("72")
                 ][field_names.GEOID_TRACT_FIELD].to_list()
-                logger.info(
+                logger.debug(
                     f"Dropping {len(drop_tracts)} tracts from Linguistic Isolation"
                 )
 
@@ -615,7 +621,7 @@ class ScoreETL(ExtractTransformLoad):
                     df_copy[field_names.TOTAL_POP_FIELD].fillna(0)
                     <= low_population
                 ][field_names.GEOID_TRACT_FIELD].to_list()
-                logger.info(
+                logger.debug(
                     f"Dropping {len(drop_tracts)} tracts from DOT traffic burden"
                 )
 
@@ -666,7 +672,7 @@ class ScoreETL(ExtractTransformLoad):
         )
 
     def _backfill_island_demographics(self, df: pd.DataFrame) -> pd.DataFrame:
-        logger.info("Backfilling island demographic data")
+        logger.debug("Backfilling island demographic data")
         island_index = self._get_island_areas(df)
         for backfill_field_name in self.ISLAND_DEMOGRAPHIC_BACKFILL_FIELDS:
             actual_field_name = backfill_field_name.replace(
@@ -684,8 +690,6 @@ class ScoreETL(ExtractTransformLoad):
         return df
 
     def transform(self) -> None:
-        logger.info("Transforming Score Data")
-
         # prepare the df with the right CBG/tract IDs, column names/types, and percentiles
         self.df = self._prepare_initial_df()
 
@@ -696,9 +700,6 @@ class ScoreETL(ExtractTransformLoad):
         self.df = self._backfill_island_demographics(self.df)
 
     def load(self) -> None:
-        logger.info(
-            f"Saving Score CSV to {constants.DATA_SCORE_CSV_FULL_FILE_PATH}."
-        )
         constants.DATA_SCORE_CSV_FULL_DIR.mkdir(parents=True, exist_ok=True)
 
         self.df.to_csv(constants.DATA_SCORE_CSV_FULL_FILE_PATH, index=False)

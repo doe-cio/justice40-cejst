@@ -1,6 +1,8 @@
 import pandas as pd
 from data_pipeline.config import settings
 from data_pipeline.etl.base import ExtractTransformLoad
+from data_pipeline.etl.datasource import DataSource
+from data_pipeline.etl.datasource import FileDataSource
 from data_pipeline.score import field_names
 from data_pipeline.utils import get_module_logger
 
@@ -15,12 +17,21 @@ class MichiganEnviroScreenETL(ExtractTransformLoad):
     """
 
     def __init__(self):
-        self.MICHIGAN_EJSCREEN_S3_URL = (
+
+        # fetch
+        self.michigan_ejscreen_url = (
             settings.AWS_JUSTICE40_DATASOURCES_URL
             + "/michigan_ejscore_12212021.csv"
         )
 
+        # input
+        self.michigan_ejscreen_source = (
+            self.get_sources_path() / "michigan_ejscore_12212021.csv"
+        )
+
+        # output
         self.CSV_PATH = self.DATA_PATH / "dataset" / "michigan_ejscreen"
+
         self.MICHIGAN_EJSCREEN_PRIORITY_COMMUNITY_THRESHOLD: float = 0.75
 
         self.COLUMNS_TO_KEEP = [
@@ -32,16 +43,27 @@ class MichiganEnviroScreenETL(ExtractTransformLoad):
 
         self.df: pd.DataFrame
 
-    def extract(self) -> None:
-        logger.info("Downloading Michigan EJSCREEN Data")
+    def get_data_sources(self) -> [DataSource]:
+        return [
+            FileDataSource(
+                source=self.michigan_ejscreen_url,
+                destination=self.michigan_ejscreen_source,
+            )
+        ]
+
+    def extract(self, use_cached_data_sources: bool = False) -> None:
+
+        super().extract(
+            use_cached_data_sources
+        )  # download and extract data sources
+
         self.df = pd.read_csv(
-            filepath_or_buffer=self.MICHIGAN_EJSCREEN_S3_URL,
+            filepath_or_buffer=self.michigan_ejscreen_source,
             dtype={"GEO_ID": "string"},
             low_memory=False,
         )
 
     def transform(self) -> None:
-        logger.info("Transforming Michigan EJSCREEN Data")
 
         self.df.rename(
             columns={
@@ -60,7 +82,6 @@ class MichiganEnviroScreenETL(ExtractTransformLoad):
         )
 
     def load(self) -> None:
-        logger.info("Saving Michigan Environmental Screening Tool to CSV")
         # write nationwide csv
         self.CSV_PATH.mkdir(parents=True, exist_ok=True)
         self.df[self.COLUMNS_TO_KEEP].to_csv(

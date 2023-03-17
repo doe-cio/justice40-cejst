@@ -4,6 +4,7 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 from data_pipeline.etl.base import ExtractTransformLoad
+from data_pipeline.etl.datasource import DataSource
 from data_pipeline.etl.base import ValidGeoLevel
 from data_pipeline.etl.sources.geo_utils import add_tracts_for_geometries
 from data_pipeline.etl.sources.geo_utils import get_tract_geojson
@@ -67,6 +68,9 @@ class TribalOverlapETL(ExtractTransformLoad):
         self.census_tract_gdf: gpd.GeoDataFrame
         self.tribal_gdf: gpd.GeoDataFrame
 
+    def get_data_sources(self) -> [DataSource]:
+        return []  # this uses already retrieved / calculated data
+
     @staticmethod
     def _create_string_from_list(series: pd.Series) -> str:
         """Helper method that creates a sorted string list (for tribal names)."""
@@ -89,13 +93,16 @@ class TribalOverlapETL(ExtractTransformLoad):
 
         return percentage_float
 
-    def extract(self) -> None:
+    def extract(self, use_cached_data_sources: bool = False) -> None:
+
+        super().extract(
+            use_cached_data_sources
+        )  # download and extract data sources
+
         self.census_tract_gdf = get_tract_geojson()
         self.tribal_gdf = get_tribal_geojson()
 
     def transform(self) -> None:
-        logger.info("Starting tribal overlap transforms.")
-
         # First, calculate whether tracts include any areas from the Tribal areas,
         # for both the points in AK and the polygons in the continental US (CONUS).
         tribal_overlap_with_tracts = add_tracts_for_geometries(

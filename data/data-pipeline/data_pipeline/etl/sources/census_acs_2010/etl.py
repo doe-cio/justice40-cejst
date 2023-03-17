@@ -1,10 +1,9 @@
 import pandas as pd
 from data_pipeline.etl.base import ExtractTransformLoad
-from data_pipeline.etl.sources.census_acs.etl_utils import (
-    retrieve_census_acs_data,
-)
 from data_pipeline.score import field_names
 from data_pipeline.utils import get_module_logger
+from data_pipeline.etl.datasource import DataSource
+from data_pipeline.etl.datasource import CensusDataSource
 
 logger = get_module_logger(__name__)
 
@@ -18,6 +17,9 @@ class CensusACS2010ETL(ExtractTransformLoad):
     """
 
     def __init__(self):
+
+        self.census_acs_source = self.get_sources_path() / "acs_2010.csv"
+
         self.ACS_YEAR = 2010
         self.ACS_TYPE = "acs5"
         self.OUTPUT_PATH = (
@@ -99,8 +101,7 @@ class CensusACS2010ETL(ExtractTransformLoad):
 
         self.df: pd.DataFrame
 
-    def extract(self) -> None:
-        logger.info("Starting Census 2010 ACS Transform")
+    def get_data_sources(self) -> [DataSource]:
         # Define the variables to retrieve
         variables = (
             self.UNEMPLOYED_FIELDS
@@ -108,18 +109,29 @@ class CensusACS2010ETL(ExtractTransformLoad):
             + self.POVERTY_FIELDS
         )
 
-        # Use the method defined on CensusACSETL to reduce coding redundancy.
-        self.df = retrieve_census_acs_data(
-            acs_year=self.ACS_YEAR,
-            variables=variables,
-            tract_output_field_name=self.GEOID_TRACT_FIELD_NAME,
-            data_path_for_fips_codes=self.DATA_PATH,
-            acs_type=self.ACS_TYPE,
+        return [
+            CensusDataSource(
+                source=None,
+                destination=self.census_acs_source,
+                acs_year=self.ACS_YEAR,
+                variables=variables,
+                tract_output_field_name=self.GEOID_TRACT_FIELD_NAME,
+                data_path_for_fips_codes=self.DATA_PATH,
+                acs_type=self.ACS_TYPE,
+            )
+        ]
+
+    def extract(self, use_cached_data_sources: bool = False) -> None:
+
+        super().extract(
+            use_cached_data_sources
+        )  # download and extract data sources
+
+        self.df = pd.read_csv(
+            self.census_acs_source, dtype={"GEOID10_TRACT": "string"}
         )
 
     def transform(self) -> None:
-        logger.info("Starting Census 2010 ACS Transform")
-
         df = self.df
 
         # Calculate percent unemployment.
@@ -184,8 +196,6 @@ class CensusACS2010ETL(ExtractTransformLoad):
         self.df = output_df
 
     def load(self) -> None:
-        logger.info("Saving Census 2010 ACS Data")
-
         # mkdir census
         self.OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 

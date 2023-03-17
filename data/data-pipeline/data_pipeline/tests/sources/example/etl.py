@@ -5,6 +5,7 @@ from data_pipeline.config import settings
 from data_pipeline.etl.base import ExtractTransformLoad
 from data_pipeline.etl.base import ValidGeoLevel
 from data_pipeline.utils import get_module_logger
+from data_pipeline.etl.datasource import DataSource
 
 logger = get_module_logger(__name__)
 
@@ -30,6 +31,9 @@ class ExampleETL(ExtractTransformLoad):
             self.EXAMPLE_FIELD_NAME,
         ]
 
+    def get_data_sources(self) -> [DataSource]:
+        return []
+
     def extract(self):
         # Pretend to download zip from external URL, write it to CSV.
         zip_file_path = (
@@ -41,14 +45,12 @@ class ExampleETL(ExtractTransformLoad):
             / "input.zip"
         )
 
-        logger.info(f"Extracting {zip_file_path}")
         with zipfile.ZipFile(zip_file_path, "r") as zip_ref:
-            zip_ref.extractall(self.get_tmp_path())
+            zip_ref.extractall(self.get_sources_path())
 
     def transform(self):
-        logger.info(f"Loading file from {self.get_tmp_path() / 'input.csv'}.")
         df: pd.DataFrame = pd.read_csv(
-            self.get_tmp_path() / "input.csv",
+            self.get_sources_path() / "input.csv",
             dtype={self.GEOID_TRACT_FIELD_NAME: "string"},
             low_memory=False,
         )
