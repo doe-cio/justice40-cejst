@@ -59,7 +59,7 @@ jobs:
           ogrinfo --version
       - name: Install dependencies
         run: poetry add s4cmd && poetry install
-        ###if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
 
       - id: 'auth'
         uses: 'google-github-actions/auth@v1'
