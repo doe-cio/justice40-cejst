@@ -255,7 +255,7 @@ export const CATEGORIES = {
     />,
     IF: <FormattedMessage
       id={'methodology.page.indicator.categories.afford.house.if'}
-      defaultMessage={`Experienced <link0>historic underinvestment</link0> OR are at or above the 90th percentile for the <link1>housing cost</link1> OR <link2>lack of green space</link2> OR <link3>lack of indoor plumbing</link3> OR <link4>lead paint</link4>`}
+      defaultMessage={`Experienced <link0>historic underinvestment</link0> OR are at or above the 90th percentile for <link1>housing cost</link1> OR <link2>lack of green space</link2> OR <link3>lack of indoor plumbing</link3> OR <link4>lead paint</link4>`}
       description={'Navigate to the methodology page. Navigate to the category section. This will set the if portion of the formula'}
       values={{
         link0: simpleLink('#hist-underinv'),
@@ -403,6 +403,13 @@ export const DATASETS = defineMessages({
     `,
     description: 'Navigate to the Methodology page. This is the description of the dataset section',
   },
+  CENSUS_DISCLAIMER: {
+    id: 'methodology.page.datasetContainer.census.disclaimer',
+    defaultMessage: `
+      This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.
+    `,
+    description: 'Navigate to the Methodology page. This is the disclaimer when using census data',
+  },
   ADDITIONAL_HEADING: {
     id: 'methodology.page.datasetContainer.additional.heading',
     defaultMessage: 'Additional Indicators',
@@ -434,7 +441,7 @@ export const DATASET_CARD_LABELS = defineMessages({
   },
   RESP_PARTY: {
     id: 'methodology.page.datasetCard.responsible.party',
-    defaultMessage: 'Responsible Party: ',
+    defaultMessage: 'Responsible party: ',
     description: 'Navigate to the Methodology page. This is the label associated with explaining the card',
   },
   DATE_RANGE: {
@@ -604,7 +611,7 @@ export const SOURCE_LINKS = {
     `}
     description={'Navigate to the Methodology page. This is the source link for EPA OAR'}
     values={{
-      link1: linkFn('https://www.epa.gov/ejscreen/technical-documentation-ejscreen', false, true),
+      link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
       date17: DATE_RANGE.SEVENTEEN,
     }}
   />,
@@ -613,7 +620,7 @@ export const SOURCE_LINKS = {
     defaultMessage={`<link1>National Air Toxics Assessment (NATA)</link1> from {date14} as compiled by EPA's EJScreen`}
     description={'Navigate to the Methodology page. This is the source link for EPA NATA'}
     values={{
-      link1: linkFn('https://www.epa.gov/ejscreen/technical-documentation-ejscreen', false, true),
+      link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
       date14: DATE_RANGE.FOURTEEN,
     }}
   />,
@@ -622,7 +629,7 @@ export const SOURCE_LINKS = {
     defaultMessage={`<link1>Traffic data</link1> from {date17} as compiled by EPA's EJScreen`}
     description={'Navigate to the Methodology page. This is the source link for DOT EPA'}
     values={{
-      link1: linkFn('https://www.epa.gov/ejscreen/technical-documentation-ejscreen', false, true),
+      link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
       date17: DATE_RANGE.SEVENTEEN,
     }}
   />,
@@ -661,7 +668,7 @@ export const SOURCE_LINKS = {
     defaultMessage={`<link1>RMP database</link1> from {date20} as compiled by EPA’s EJScreen`}
     description={'Navigate to the Methodology page. This is the source link for EPA RMP'}
     values={{
-      link1: linkFn('https://www.epa.gov/ejscreen/technical-documentation-ejscreen', false, true),
+      link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
       date20: DATE_RANGE.TWENTY,
     }}
   />,
@@ -670,7 +677,7 @@ export const SOURCE_LINKS = {
     defaultMessage={`<link1>Risk-Screening Environmental Indicators (RSEI) model</link1> from {date20} as compiled by EPA’s EJScreen`}
     description={'Navigate to the Methodology page. This is the source link for EPA RSEI'}
     values={{
-      link1: linkFn('https://www.epa.gov/ejscreen/technical-documentation-ejscreen', false, true),
+      link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
       date20: DATE_RANGE.TWENTY,
     }}
   />,
@@ -857,7 +864,7 @@ export const INDICATORS = [
       }}
     />,
     usedIn: CATEGORIES.ALL,
-    responsibleParty: RESPONSIBLE_PARTIES.CEN,
+    responsibleParty: RESPONSIBLE_PARTIES.CENSUS,
     sources: [
       {
         source: SOURCE_LINKS.CENSUS_ACS_15_19,

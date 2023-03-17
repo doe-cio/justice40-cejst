@@ -1,6 +1,6 @@
 [default]
-AWS_JUSTICE40_DATASOURCES_URL = "https://justice40-data.s3.amazonaws.com/data-sources"
-AWS_JUSTICE40_DATAPIPELINE_URL = "https://justice40-data.s3.amazonaws.com/data-pipeline"
+AWS_JUSTICE40_DATASOURCES_URL = "https://storage.googleapis.com/justice49-data/data-sources"
+AWS_JUSTICE40_DATAPIPELINE_URL = "https://storage.googleapis.com/justice40-data/data-pipeline"
 DATASOURCE_RETRIEVAL_FROM_AWS = true
 
 [development]
