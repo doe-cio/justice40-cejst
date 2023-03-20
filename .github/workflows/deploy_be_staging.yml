@@ -6,9 +6,17 @@ on:
       - "**/release/**"
     paths:
       - "data/**"
+
+  workflow_dispatch:
+    branches:
+      - gcp_workflows
+    paths:
+      - "data/**/"
 env:
-  PR_NUMBER: ${{github.event.pull_request.number}}
-  SHA_NUMBER: ${{github.event.pull_request.head.sha}}
+  ###PR_NUMBER: ${{github.event.pull_request.number}}
+  ###SHA_NUMBER: ${{github.event.pull_request.head.sha}}
+  PR_NUMBER: 123
+  SHA_NUMBER: 123
   CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
 jobs:
   generate-score-tiles:
