@@ -167,7 +167,7 @@ jobs:
       - id: 'upload-files-download'
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
-          path: data/pipeline/data_pipeline/data/score/downloadable/ 
+          path: data/data-pipeline/data_pipeline/data/score/downloadable/ 
           destination: justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/downloadable
           parent: false
 
