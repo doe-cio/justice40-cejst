@@ -22,6 +22,7 @@ env:
   ###SHA_NUMBER: ${{github.event.pull_request.head.sha}}
   SHA_NUMBER: 123 
   CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+  SERVICE_ACCOUNT: 'j40-service-account@prj-icc-sandbox-poc.iam.gserviceaccount.com'
 jobs:
   generate-score-tiles:
     runs-on: ubuntu-latest
@@ -69,8 +70,8 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           workload_identity_provider: 'projects/1059665175923/locations/global/workloadIdentityPools/j40-pool/providers/j40-provider'
-          service_account: 'j40-service-account@prj-icc-sandbox-poc.iam.gserviceaccount.com'
+          service_account: ${{env.SERVICE_ACCOUNT}} 
 
       - name: Deploy Score to GCP 
         run: |
-         poetry run gsutil -m cp -r ./data_pipeline/data/* gs://testj40-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
+         poetry run gsutil -m -i ${{env.SERVICE_ACCOUNT}} cp -r ./data_pipeline/data/* gs://testj40-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
