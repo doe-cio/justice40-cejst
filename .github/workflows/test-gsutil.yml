@@ -1,0 +1,72 @@
+name: Test Gsutil
+on:
+  pull_request:
+    branches:
+      - main
+      - "**/release/**"
+    paths:
+      - "data/**"
+
+  workflow_dispatch:
+    branches:
+      - gcp_workflows
+    paths:
+      - "data/**/"
+env:
+  ###PR_NUMBER: ${{github.event.pull_request.number}}
+  PR_NUMBER: 12345 
+  ###SHA_NUMBER: ${{github.event.pull_request.head.sha}}
+  SHA_NUMBER: 123 
+  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+jobs:
+  generate-score-tiles:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: data/data-pipeline
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+      - name: Print variables to help debug
+        uses: hmarr/debug-action@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -U wheel
+      - name: Load cached Poetry installation
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: env-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/test-gsutil.yml') }}
+      - name: Install poetry
+        uses: snok/install-poetry@v1.3.3
+      - name: Print Poetry settings
+        run: poetry show -v
+      - name: Install GDAL/ogr2ogr
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install gdal-bin
+          ogrinfo --version
+      - name: Install dependencies
+        run: poetry add gsutil && poetry install
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: 'projects/1059665175923/locations/global/workloadIdentityPools/j40-pool/providers/j40-provider'
+          service_account: 'j40-service-account@prj-icc-sandbox-poc.iam.gserviceaccount.com'
+
+      - name: Deploy Score to GCP 
+        run: |
+         poetry run gsutil -m cp -r ./data_pipeline/data/* gs://test-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
