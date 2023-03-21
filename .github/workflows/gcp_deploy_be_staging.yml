@@ -87,14 +87,14 @@ jobs:
       ###   poetry run s4cmd put ./data_pipeline/data/score/csv/ s3://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/csv --recursive --force --API-ACL=public-read
       ###    poetry run s4cmd put ./data_pipeline/files/ s3://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/downloadable --recursive --force --API-ACL=public-read
 
-      - id: 'upload-files'
+      - id: 'upload-files-csv'
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
           path: data/data-pipeline/data_pipeline/data/score/csv/ 
           destination: 'justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/csv'
           parent: false
 
-      - id: 'upload-files2'
+      - id: 'upload-files-file'
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
           path: data/data-pipeline/data_pipeline/files/
@@ -138,10 +138,39 @@ jobs:
           poetry run python3 data_pipeline/application.py generate-map-tiles
       - name: Deploy Map to Geoplatform AWS
         run: |
-          poetry run s4cmd put ./data_pipeline/data/score/geojson/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/geojson --recursive --force  --API-ACL=public-read --num-threads=250
-          poetry run s4cmd put ./data_pipeline/data/score/shapefile/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/shapefile --recursive --force  --API-ACL=public-read
-          poetry run s4cmd put ./data_pipeline/data/score/tiles/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/tiles --recursive --force  --API-ACL=public-read --num-threads=250
-          poetry run s4cmd put ./data_pipeline/data/score/downloadable/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/downloadable --recursive --force --API-ACL=public-read
+      #    poetry run s4cmd put ./data_pipeline/data/score/geojson/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/geojson --recursive --force  --API-ACL=public-read --num-threads=250
+      #    poetry run s4cmd put ./data_pipeline/data/score/shapefile/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/shapefile --recursive --force  --API-ACL=public-read
+      #    poetry run s4cmd put ./data_pipeline/data/score/tiles/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/tiles --recursive --force  --API-ACL=public-read --num-threads=250
+      #    poetry run s4cmd put ./data_pipeline/data/score/downloadable/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/downloadable --recursive --force --API-ACL=public-read
+
+      - id: 'upload-files-geojson'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: data/data-pipeline/data_pipeline/data/score/geojson/ 
+          destination: justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/geojson
+          parent: false
+
+      - id: 'upload-files-shp'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: data/data-pipeline/data_pipeline/data/score/shapefile/ 
+          destination: justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/shapefile
+          parent: false
+
+      - id: 'upload-files-tile'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: data/data-pipeline/data_pipeline/data/score/tiles/ 
+          destination: justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/tiles
+          parent: false
+
+      - id: 'upload-files-download'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: data/pipeline/data_pipeline/data/score/downloadable/ 
+          destination: justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/downloadable
+          parent: false
+
       - name: Update PR with deployed Map URL
         uses: mshick/add-pr-comment@v1
         with:
