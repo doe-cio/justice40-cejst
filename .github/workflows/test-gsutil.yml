@@ -70,4 +70,4 @@ jobs:
 
       - name: Deploy Score to GCP 
         run: |
-         poetry run gsutil -m -i ${{env.SERVICE_ACCOUNT}} cp -r ./data_pipeline/data/* gs://testj40-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
+         poetry run gsutil -i ${{env.SERVICE_ACCOUNT}} -m cp -r ./data_pipeline/data/* gs://testj40-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
