@@ -89,7 +89,7 @@ jobs:
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
           path: ./client/public
-          destination: 'doe-justice40-website/justice40-cejst/${{env.DESTINATION_FOLDER}}'
+          destination: 'doe-justice40-website/${{env.DESTINATION_FOLDER}}'
           parent: false
 
       - name: Update PR with deployed URL
@@ -104,7 +104,7 @@ jobs:
           allow-repeats: false # This is the default
       - name: Printing deployment URLs
         run: |
-          echo "Github pages: https://doe-cio.github.io/justice40-cejst/$DESTINATION_FOLDER/en"
+          echo "Github pages: https://doe-cio.github.io/$DESTINATION_FOLDER/en"
       - name: Get changed files using defaults
         id: changed-files
         uses: tj-actions/changed-files@v18.1
