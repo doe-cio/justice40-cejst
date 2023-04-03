@@ -12,8 +12,6 @@ env:
   ###SHA_NUMBER: ${{github.event.pull_request.head.sha}}
   SHA_NUMBER: 123 
   CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
-  GCP_IDENTITY_POOL_PROVIDER_ID: 'projects/1059665175923/locations/global/workloadIdentityPools/j40-pool/providers/j40-provider'
-  GCP_CI_SERVICE_ACCOUNT: 'j40-service-account@prj-icc-sandbox-poc.iam.gserviceaccount.com'
 jobs:
   generate-score-tiles:
     runs-on: ubuntu-latest
@@ -61,8 +59,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: "${{env.GCP_IDENTITY_POOL_PROVIDER_ID}}" 
-          service_account: "${{env.GCP_CI_SERVICE_ACCOUNT}}" 
+          workload_identity_provider: "${{secrets.GCP_IDENTITY_POOL_PROVIDER_ID}}" 
+          service_account: "${{secrets.GCP_CI_SERVICE_ACCOUNT}}" 
       
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
