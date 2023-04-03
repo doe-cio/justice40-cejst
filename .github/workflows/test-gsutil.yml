@@ -1,21 +1,13 @@
 name: Test Gsutil
 on:
-  pull_request:
-    branches:
-      - main
-      - "**/release/**"
-    paths:
-      - "data/**"
-
   push:
     branches:
       - gcp_workflows
-
-  workflow_dispatch:
-    branches:
-      - gcp_workflows
+      - main
+      - "**/release/**"
     paths:
       - "data/**/"
+
 env:
   ###PR_NUMBER: ${{github.event.pull_request.number}}
   PR_NUMBER: 12345 
@@ -75,8 +67,8 @@ jobs:
           service_account: "${{env.GCP_CI_SERVICE_ACCOUNT}}" 
       
       - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+        uses: google-github-actions/setup-gcloud@v1
 
       - name: Deploy Score to GCP 
         run: |
-         poetry run gsutil -i ${{env.SERVICE_ACCOUNT}} -m cp -r ./data_pipeline/data/* gs://testj40-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
+         poetry run gsutil -m cp -r ./data_pipeline/data/* gs://testj40-data/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data
