@@ -10,8 +10,6 @@ on:
   push:
     branches:
       - gcp_workflows
-    paths:
-      - "data/**/"
 
   workflow_dispatch:
     branches:
