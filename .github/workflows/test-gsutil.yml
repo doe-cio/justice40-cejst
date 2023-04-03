@@ -18,7 +18,8 @@ env:
   ###SHA_NUMBER: ${{github.event.pull_request.head.sha}}
   SHA_NUMBER: 123 
   CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
-  SERVICE_ACCOUNT: 'j40-service-account@prj-icc-sandbox-poc.iam.gserviceaccount.com'
+  GCP_IDENTITY_POOL_PROVIDER_ID: 'projects/1059665175923/locations/global/workloadIdentityPools/j40-pool/providers/j40-provider'
+  GCP_CI_SERVICE_ACCOUNT: 'j40-service-account@prj-icc-sandbox-poc.iam.gserviceaccount.com'
 jobs:
   generate-score-tiles:
     runs-on: ubuntu-latest
@@ -61,12 +62,16 @@ jobs:
       - name: Install dependencies
         run: poetry add gsutil && poetry install
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-
-      - id: 'auth'
-        uses: 'google-github-actions/auth@v1'
+      
+      - name: Authorize in GCP
+        id: auth
+        uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: 'projects/1059665175923/locations/global/workloadIdentityPools/j40-pool/providers/j40-provider'
-          service_account: ${{env.SERVICE_ACCOUNT}} 
+          workload_identity_provider: "${{env.GCP_IDENTITY_POOL_PROVIDER_ID}}" 
+          service_account: "${{env.GCP_CI_SERVICE_ACCOUNT}}" 
+      
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
 
       - name: Deploy Score to GCP 
         run: |
