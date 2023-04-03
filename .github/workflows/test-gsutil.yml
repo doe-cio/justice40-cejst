@@ -1,10 +1,8 @@
 name: Test Gsutil
 on:
-  push:
+  workflow_dispatch:
     branches:
       - gcp_workflows
-      - main
-      - "**/release/**"
     paths:
       - "data/**/"
 
