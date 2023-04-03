@@ -123,7 +123,7 @@ jobs:
       - name: Generate Tiles
         run: |
           poetry run python3 data_pipeline/application.py generate-map-tiles
-      - name: Deploy Map to Geoplatform AWS
+      - name: Deploy Map to GCP
         run: |
           poetry run gsutil -m cp -r ./data_pipeline/data/score/geojson/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/geojson
           poetry run gsutil -m cp -r ./data_pipeline/data/score/shapefile/ gs://justice40-data/data-pipeline-staging/${{env.PR_NUMBER}}/${{env.SHA_NUMBER}}/data/score/shapefile
